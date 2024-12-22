@@ -1,13 +1,12 @@
-"""Demo."""
-
-from pathlib import Path
+"""xkcd demo."""
 
 import matplotlib.pyplot as plt
 
 plt.xkcd()
 plt.plot([1, 2], [3, 4])
+plt.xlabel("x")
+plt.ylabel("y")
 plt.grid(True, lw="0.5")
+plt.title('A "straight" line')
 
-path = Path("out")
-path.mkdir(parents=True, exist_ok=True)
-plt.savefig(path / "test_plot.png")
+plt.savefig("img/test_plot.png", bbox_inches="tight")

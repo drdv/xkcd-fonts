@@ -1,6 +1,6 @@
 PYTHON := python
 VENV_NAME := .venv
-OUT_DIR := out
+OUT_DIR := img
 
 MATPLOTLIB_CACHE_FILE := fontlist*
 F39_FONTS_DIR := $(HOME)/.local/share/fonts
@@ -16,8 +16,8 @@ setup-venv: ## setup venv
 	pip install -r .requirements.txt
 
 ## generate a test plot
-test-plot:
-	@python test_plot.py
+test-plot: #setup-venv
+	@. ${VENV_NAME}/bin/activate && python test_plot.py
 	@xdg-open $(OUT_DIR)/test_plot.png
 
 ## clean generated plots and python venv
