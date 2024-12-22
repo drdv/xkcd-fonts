@@ -16,7 +16,7 @@ setup-venv: ## setup venv
 	pip install -r .requirements.txt
 
 ## generate a test plot
-test-plot: #setup-venv
+test-plot: setup-venv
 	@. ${VENV_NAME}/bin/activate && python test_plot.py
 	@xdg-open $(OUT_DIR)/test_plot.png
 
