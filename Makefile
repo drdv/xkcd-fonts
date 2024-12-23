@@ -21,10 +21,12 @@ setup-venv: ## setup venv
 	pip install --upgrade pip && \
 	pip install -r .requirements.txt
 
-## remove test image and python venv
+## remove all generated stuff
 clean:
 	@rm -rf $(OUT_DIR)
 	@rm -rf $(VENV_NAME)
+	@rm -rf .external
+
 
 ##@
 ##@ ----- fedora related targets -----
