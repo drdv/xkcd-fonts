@@ -6,8 +6,9 @@ MATPLOTLIB_CACHE_FILE := fontlist*
 FEDORA_FONTS_DIR := $(HOME)/.local/share/fonts
 
 help: ## show this help
-	@awk -f makefile-doc.awk $(MAKEFILE_LIST) 2> /dev/null || \
-	echo "Running this target requires makefile-doc.awk (https://github.com/drdv/makefile-doc)"
+	@test -f .external/makefile-doc.awk || \
+	wget --quiet -P .external github.com/drdv/makefile-doc/releases/latest/download/makefile-doc.awk
+	@awk -f .external/makefile-doc.awk $(MAKEFILE_LIST)
 
 ## generate a test plot
 test-plot: setup-venv
