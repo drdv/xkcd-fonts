@@ -12,14 +12,14 @@ if this contradicts a license I am not aware of.
 
 ## Install
 
-### Fedora 39
+### Fedora
 
-+ `make f39-install-fonts`
-  + copies the contents of the `fonts` directory in `~/.local/share/fonts`
-  + runs `fc-cache -v` (then `fc-list | grep xkcd` to check installation)
-  + clears matplotlib's cache
++ `make fedora-install-fonts`
+  + copy the contents of the `fonts` directory in `~/.local/share/fonts`
+  + run `fc-cache -v` (then `fc-list | grep xkcd` to check installation)
+  + clear matplotlib's cache
 
-### Macos 13.1
+### Macos
 
 + drag and drop the `fonts` folder in the `Font Book` application (no need to replace
   already existing fonts)
