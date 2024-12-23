@@ -1,5 +1,7 @@
 """xkcd demo."""
 
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 
 plt.xkcd()
@@ -9,4 +11,6 @@ plt.ylabel("y")
 plt.grid(True, lw="0.5")
 plt.title('A "straight" line')
 
-plt.savefig("img/test_plot.png", bbox_inches="tight")
+out_dir = Path("out")
+out_dir.mkdir(exist_ok=True, parents=True)
+plt.savefig(out_dir / "test_plot.png", bbox_inches="tight")

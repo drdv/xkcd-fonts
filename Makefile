@@ -1,6 +1,6 @@
 PYTHON := python
 VENV_NAME := .venv
-OUT_DIR := img
+OUT_DIR := out
 
 MATPLOTLIB_CACHE_FILE := fontlist*
 FEDORA_FONTS_DIR := $(HOME)/.local/share/fonts
@@ -20,7 +20,7 @@ setup-venv: ## setup venv
 	pip install --upgrade pip && \
 	pip install -r .requirements.txt
 
-## clean generated plots and python venv
+## remove test image and python venv
 clean:
 	@rm -rf $(OUT_DIR)
 	@rm -rf $(VENV_NAME)
