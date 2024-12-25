@@ -42,7 +42,7 @@ fedora-install-fonts: fedora-clean-matplotlib-cache
 ##! delete matplotlib's cache
 fedora-clean-matplotlib-cache:
 	$(eval PLT_DIR=$(shell python -c "import matplotlib; print(matplotlib.get_cachedir())"))
-	@echo "Delete matplotlib's cache $(PLT_DIR)/$(MATPLOTLIB_CACHE_FILE)? [y/n]"
-	@cd $(PLT_DIR) && tree
-	@read answer && [ $$answer = y ] && rm -f $(PLT_DIR)/$(MATPLOTLIB_CACHE_FILE) || \
-	echo "Operation cancelled"
+	@read -p "Delete matplotlib's cache $(PLT_DIR)/$(MATPLOTLIB_CACHE_FILE)? [Y/n] " ans \
+	&& ([ -z $$ans ] || [ $$ans = y ] || [ $$ans = Y ]) \
+	&& rm -f $(PLT_DIR)/$(MATPLOTLIB_CACHE_FILE) \
+	|| echo "Operation cancelled"
