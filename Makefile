@@ -5,11 +5,12 @@ OUT_DIR := out
 MATPLOTLIB_CACHE_FILE := fontlist*
 FEDORA_FONTS_DIR := $(HOME)/.local/share/fonts
 
-help: DIR := $(HOME)/.local/share/makefile-doc
 help: URL := github.com/drdv/makefile-doc/releases/latest/download/makefile-doc.awk
+help: DIR := $(HOME)/.local/share/makefile-doc
+help: SCR := $(DIR)/makefile-doc.awk
 help: ## show this help
-	@test -f $(DIR)/makefile-doc.awk || wget --quiet -P $(DIR) $(URL)
-	@awk -f $(DIR)/makefile-doc.awk $(MAKEFILE_LIST)
+	@test -f $(SCR) || wget -q -P $(DIR) $(URL)
+	@awk -f $(SCR) $(MAKEFILE_LIST)
 
 ## generate a test plot
 test-plot: setup-venv
